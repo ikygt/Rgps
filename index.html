@@ -74,6 +74,21 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
+        button.action-button {
+            background: #ff4500;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button.action-button:hover {
+            background: #ff8c00;
+        }
+
         @media (max-width: 768px) {
             nav {
                 display: none;
@@ -122,10 +137,12 @@
         <div class="card">
             <h3>Link Download Virtual Host</h3>
             <p><i>*Link akan segera tersedia</i></p>
+            <button class="action-button">Download</button>
         </div>
         <div class="card">
             <h3>Link Download Aplikasi Powertunnel</h3>
             <p><i>*Link akan segera tersedia</i></p>
+            <button class="action-button">Download</button>
         </div>
     </section>
 
@@ -139,7 +156,7 @@
 91.134.85.13 www.growtopia1.com
 91.134.85.13 www.growtopia2.com
             </pre>
-            <a href="#">Salin ke .txt</a>
+            <button class="action-button">Salin ke .txt</button>
         </div>
         <div class="card">
             <h3>Windows</h3>
@@ -150,6 +167,7 @@
 91.134.85.13 www.growtopia2.com
             </pre>
             <p><i>*Tambahkan secara manual ke hosts file Windows</i></p>
+            <button class="action-button">Salin</button>
         </div>
     </section>
 
