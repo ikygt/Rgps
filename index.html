@@ -49,6 +49,32 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
+        .menu {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         section {
             padding: 80px 20px;
             text-align: center;
@@ -96,15 +122,6 @@
 
             .menu {
                 display: flex;
-                flex-direction: column;
-            }
-
-            .menu-button {
-                background: none;
-                border: none;
-                color: white;
-                font-size: 1.5rem;
-                cursor: pointer;
             }
         }
     </style>
@@ -185,6 +202,9 @@
                 section.classList.remove('active');
             });
             document.getElementById(id).classList.add('active');
+            if (menu && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+            }
         }
     </script>
 </body>
