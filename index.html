@@ -76,20 +76,22 @@
         }
 
         section {
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
             display: none;
+            background: rgba(0, 0, 0, 0.7);
+            margin: 0 auto;
+            max-width: 800px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         section.active {
             display: block;
         }
 
-        .hero {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px;
+        h1, h2, h3 {
+            margin: 10px 0;
         }
 
         .card {
@@ -143,10 +145,8 @@
     </header>
 
     <section id="about" class="active">
-        <div class="hero">
-            <h1>Selamat Datang di RagnarokPS</h1>
-            <p>RagnarokPS adalah Growtopia Private Server yang menyediakan pengalaman unik dan seru dengan berbagai fitur menarik. Bergabunglah sekarang dan nikmati petualangan baru bersama teman-teman Anda!</p>
-        </div>
+        <h1>Selamat Datang di RagnarokPS</h1>
+        <p>RagnarokPS adalah Growtopia Private Server yang menyediakan pengalaman unik dan seru dengan berbagai fitur menarik. Bergabunglah sekarang dan nikmati petualangan baru bersama teman-teman Anda!</p>
     </section>
 
     <section id="download">
@@ -193,7 +193,15 @@
         const menu = document.querySelector('.menu');
         const sections = document.querySelectorAll('section');
 
-        menuButton.addEventListener('click', () => {
+        document.addEventListener('click', (event) => {
+            const target = event.target;
+            if (!menu.contains(target) && target !== menuButton) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        menuButton.addEventListener('click', (event) => {
+            event.stopPropagation();
             menu.classList.toggle('hidden');
         });
 
@@ -202,9 +210,7 @@
                 section.classList.remove('active');
             });
             document.getElementById(id).classList.add('active');
-            if (menu && !menu.classList.contains('hidden')) {
-                menu.classList.add('hidden');
-            }
+            menu.classList.add('hidden');
         }
     </script>
 </body>
