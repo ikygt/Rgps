@@ -1,216 +1,168 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RagnarokPS - Growtopia Private Server</title>
+    <title>RagnarokPS - Inspired by Yumegt</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(45deg, #ff4500, #ff8c00, #000);
+            background: #111;
             color: white;
+            overflow-x: hidden;
         }
-
         header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px 20px;
-            position: fixed;
+            position: relative;
             width: 100%;
-            top: 0;
-            z-index: 1000;
+            height: 100vh;
+            background: url('background-image.jpg') no-repeat center center/cover;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        header .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ff4500;
-        }
-
-        nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        nav a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .menu {
-            display: none;
             flex-direction: column;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
-
-        .menu a {
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #ff7f50;
+            text-shadow: 2px 2px 5px #000;
+        }
+        header p {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            z-index: 10;
+        }
+        nav a {
+            margin: 0 15px;
             color: white;
             text-decoration: none;
-            font-size: 1rem;
-            padding: 10px;
-            border-radius: 5px;
-            transition: background 0.3s;
+            font-weight: bold;
+            transition: color 0.3s;
         }
-
-        .menu a:hover {
-            background: rgba(255, 255, 255, 0.2);
+        nav a:hover {
+            color: #ff7f50;
         }
-
         section {
-            padding: 100px 20px;
+            padding: 50px 20px;
             text-align: center;
             display: none;
-            background: rgba(0, 0, 0, 0.7);
-            margin: 0 auto;
-            max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
-
         section.active {
             display: block;
         }
-
-        h1, h2, h3 {
-            margin: 10px 0;
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
-
-        .card {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 15px;
+        .feature {
+            background: rgba(255, 127, 80, 0.1);
+            border: 1px solid #ff7f50;
             border-radius: 10px;
-            margin: 10px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
         }
-
-        button.action-button {
-            background: #ff4500;
+        footer {
+            background: #222;
             color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            background: #ff4500;
             border: none;
+            color: white;
             padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
+            margin: 10px 0;
+            text-decoration: none;
+            font-size: 16px;
             cursor: pointer;
-            transition: background 0.3s;
+            border-radius: 5px;
         }
-
-        button.action-button:hover {
-            background: #ff8c00;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .menu {
-                display: flex;
-            }
+        .button:hover {
+            background: #ff7f50;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">RagnarokPS</div>
-        <nav>
-            <a href="#about" onclick="showSection('about')">Tentang</a>
-            <a href="#download" onclick="showSection('download')">Unduh</a>
-            <a href="#copy" onclick="showSection('copy')">Salin Host</a>
-        </nav>
-        <button class="menu-button">☰</button>
-        <div class="menu hidden">
-            <a href="#about" onclick="showSection('about')">Tentang</a>
-            <a href="#download" onclick="showSection('download')">Unduh</a>
-            <a href="#copy" onclick="showSection('copy')">Salin Host</a>
-        </div>
-    </header>
 
-    <section id="about" class="active">
-        <h1>Selamat Datang di RagnarokPS</h1>
-        <p>RagnarokPS adalah Growtopia Private Server yang menyediakan pengalaman unik dan seru dengan berbagai fitur menarik. Bergabunglah sekarang dan nikmati petualangan baru bersama teman-teman Anda!</p>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('features')">Features</a>
+        <a href="#" onclick="showPage('host')">Host Config</a>
+        <a href="#" onclick="showPage('about')">About</a>
+    </nav>
+
+    <section id="home" class="active">
+      <header>
+        <h1>Welcome to RagnarokPS</h1>
+        <p>RagnarokPS is a premier Growtopia Private Server that offers a unique and exciting gameplay experience. Explore custom features, enjoy community-driven events, and connect with friends in our friendly and supportive server.</p>
+        <br>
+        <h2>Join Our Community RagnarokPS</h2>
+        <a href="https://discord.com/invites/growtopia"><img src="https://play-lh.googleusercontent.com/0oO5sAneb9lJP6l8c6DH4aj6f85qNpplQVHmPmbbBxAukDnlO7DarDW0b-kEIHa8SQ=w240-h480-rw" alt="" style="width: 30%; border-radius: 10px; margin-top: 20px;"></a>
+      </header>
+
     </section>
 
-    <section id="download">
-        <h2>Unduh</h2>
-        <div class="card">
-            <h3>Link Download Virtual Host</h3>
-            <p><i>*Link akan segera tersedia</i></p>
-            <button class="action-button">Download</button>
-        </div>
-        <div class="card">
-            <h3>Link Download Aplikasi Powertunnel</h3>
-            <p><i>*Link akan segera tersedia</i></p>
-            <button class="action-button">Download</button>
+    <section id="features">
+        <h2>Features</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>Custom Items</h3>
+                <p>Unique and creative items only available here!</p>
+            </div>
+            <div class="feature">
+                <h3>Exciting Events</h3>
+                <p>Weekly and seasonal events with great rewards!</p>
+            </div>
+            <div class="feature">
+                <h3>Friendly Community</h3>
+                <p>Join a supportive and fun-loving group of players.</p>
+            </div>
         </div>
     </section>
 
-    <section id="copy">
-        <h2>Salin Host</h2>
-        <div class="card">
-            <h3>Powertunnel</h3>
-            <pre>
-91.134.85.13 growtopia1.com
-91.134.85.13 growtopia2.com
-91.134.85.13 www.growtopia1.com
-91.134.85.13 www.growtopia2.com
-            </pre>
-            <button class="action-button">Salin ke .txt</button>
-        </div>
-        <div class="card">
-            <h3>Windows</h3>
-            <pre>
-91.134.85.13 growtopia1.com
-91.134.85.13 growtopia2.com
-91.134.85.13 www.growtopia1.com
-91.134.85.13 www.growtopia2.com
-            </pre>
-            <p><i>*Tambahkan secara manual ke hosts file Windows</i></p>
-            <button class="action-button">Salin</button>
-        </div>
+    <section id="host">
+        <h2>Host Configuration</h2>
+        <button class="button" onclick="copyHost()">Copy Host</button>
+        <a href="https://yourdownloadlink.com" class="button">Download App</a>
     </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>RagnarokPS is owned by Noya and co-owned by Ragnar. We aim to provide a high-quality and enjoyable Growtopia private server experience tailored just for you!</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 RagnarokPS Created @Loki. All Rights Reserved.</p>
+    </footer>
 
     <script>
-        const menuButton = document.querySelector('.menu-button');
-        const menu = document.querySelector('.menu');
-        const sections = document.querySelectorAll('section');
-
-        document.addEventListener('click', (event) => {
-            const target = event.target;
-            if (!menu.contains(target) && target !== menuButton) {
-                menu.classList.add('hidden');
-            }
-        });
-
-        menuButton.addEventListener('click', (event) => {
-            event.stopPropagation();
-            menu.classList.toggle('hidden');
-        });
-
-        function showSection(id) {
+        function showPage(pageId) {
+            const sections = document.querySelectorAll('section');
             sections.forEach(section => {
                 section.classList.remove('active');
             });
-            document.getElementById(id).classList.add('active');
-            menu.classList.add('hidden');
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function copyHost() {
+            navigator.clipboard.writeText("yourhost.com");
+            alert("Host copied to clipboard!");
         }
     </script>
 </body>
